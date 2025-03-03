@@ -11,7 +11,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**") // Дозволити CORS для всіх маршрутів, які починаються з /api/
-                .allowedOrigins("http://localhost:8080","http://localhost:4200","https://findafriend-three.vercel.app","*")
+                .allowedOrigins("http://localhost:8080","http://localhost:4200","https://findafriend-five.vercel.app/",
+                        "https://findafriend-artems-projects-6e8a4142.vercel.app/","https://findafriend-bil1111-artems-projects-6e8a4142.vercel.app/","*")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("Authorization", "Content-Type"); // Дозволяємо ці методи
     }
