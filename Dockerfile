@@ -13,4 +13,4 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Запускаємо додаток
-CMD ["java", "-jar", "target/find-a-friend-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/spring-mvc-app.jar"]
