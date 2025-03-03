@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/animals")
+@RequestMapping("https://find-a-friend-backend-deploy.onrender.com/api/animals")
 public class AnimalController {
     @Autowired
     private AnimalService animalService;

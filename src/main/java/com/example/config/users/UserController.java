@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("https://find-a-friend-backend-deploy.onrender.com/api/users")
 public class UserController {
 
     @Autowired
@@ -116,7 +116,7 @@ public class UserController {
                 Map<String, String> response = new HashMap<>();
                 response.put("token", token); // Повертаємо токен у відповіді
                 if (loggedInUser.getRole().equals(Role.ADMIN)) {
-                    response.put("redirect", "/admin"); // Адмін
+                    response.put("redirect", "/admindashboard"); // Адмін
                 } else {
                     response.put("redirect", "/about"); // Звичайний користувач
                 }

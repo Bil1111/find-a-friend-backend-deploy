@@ -16,21 +16,7 @@ import java.nio.file.Path;
 public class EstablishmentsController {
     @Autowired
     private ShelterService shelterService;
-
-    //    @GetMapping("/api/mapPoints")
-//    public ResponseEntity<String> getMapPoints() {
-//        try {
-//            Path path = new Path.of("shelters.json") {
-//            }.getFile().toPath();
-//            String json = Files.readString(path);
-//            HttpHeaders headers = new HttpHeaders();
-//            headers.add("Content-Type", "application/json");
-//            return new ResponseEntity<>(json, headers, HttpStatus.OK);
-//        } catch (IOException e) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found");
-//        }
-//    }
-    @GetMapping("/api/mapPoints")
+    @GetMapping("https://find-a-friend-backend-deploy.onrender.com/api/mapPoints")
     public ResponseEntity<String> getMapPoints() {
         try {
             shelterService.saveSheltersToJsonFile();
