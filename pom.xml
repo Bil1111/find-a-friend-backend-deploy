@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
   <artifactId>spring-mvc-app</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>spring-mvc-app Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -132,52 +132,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version> <!-- Залишити версію без змін -->
+        <version>3.8.1</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
-      </plugin>
-
-      <!-- Exec Maven Plugin for Angular -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version> <!-- Залишити версію без змін -->
-        <executions>
-          <!-- npm install -->
-          <execution>
-            <id>npm-install</id>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <phase>generate-resources</phase>
-            <configuration>
-              <executable>npm</executable>
-              <arguments>
-                <argument>install</argument>
-              </arguments>
-              <workingDirectory>src/frontend</workingDirectory>
-            </configuration>
-          </execution>
-
-          <!-- npm run build -->
-          <execution>
-            <id>npm-build</id>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <phase>generate-resources</phase>
-            <configuration>
-              <executable>npm</executable>
-              <arguments>
-                <argument>run</argument>
-                <argument>build</argument>
-              </arguments>
-              <workingDirectory>src/frontend</workingDirectory>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
 
       <!-- Spring Boot Maven Plugin -->
@@ -185,7 +144,19 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <version>${spring.boot.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.example.config.DemoApplication</mainClass>
+        </configuration>
       </plugin>
     </plugins>
   </build>
+
+
 </project>
