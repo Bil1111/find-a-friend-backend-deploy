@@ -1,16 +1,23 @@
-# Використовуємо офіційний образ Java 17
+# Вибір образу Java
 FROM eclipse-temurin:17-jdk
 
-# Встановлюємо робочу директорію
+# Встановлюємо Maven
+RUN apt-get update && apt-get install -y maven
+
+# Робоча директорія
 WORKDIR /app
 
-# Копіюємо pom.xml і завантажуємо залежності (кешування)
+# Копіюємо pom.xml
 COPY pom.xml .
-RUN --mount=type=cache,target=/root/.m2 mvn dependency:go-offline
 
-# Копіюємо весь проєкт і збираємо JAR-файл
-COPY . .
-RUN mvn clean package -DskipTests
+# Завантажуємо залежності
+RUN mvn dependency:resolve
 
-# Запускаємо додаток
+# Копіюємо весь код
+COPY src ./src
+
+# Побудова додатку
+RUN mvn clean package
+
+# Вказуємо команду для запуску
 CMD ["java", "-jar", "target/spring-mvc-app.jar"]
