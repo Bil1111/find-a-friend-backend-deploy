@@ -116,7 +116,7 @@ public class UserController {
                 Map<String, String> response = new HashMap<>();
                 response.put("token", token); // Повертаємо токен у відповіді
                 if (loggedInUser.getRole().equals(Role.ADMIN)) {
-                    response.put("redirect", "/admindashboard"); // Адмін
+                    response.put("redirect", "/admin"); // Адмін
                 } else {
                     response.put("redirect", "/about"); // Звичайний користувач
                 }
