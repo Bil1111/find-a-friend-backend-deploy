@@ -16,7 +16,7 @@ import java.nio.file.Path;
 public class EstablishmentsController {
     @Autowired
     private ShelterService shelterService;
-    @GetMapping("https://find-a-friend-backend-deploy.onrender.com/api/mapPoints")
+    @GetMapping("/api/mapPoints")
     public ResponseEntity<String> getMapPoints() {
         try {
             shelterService.saveSheltersToJsonFile();
