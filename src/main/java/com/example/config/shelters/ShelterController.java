@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("https://find-a-friend-backend-deploy.onrender.com/api/shelters")
+@RequestMapping("/api/shelters")
 public class ShelterController {
 
     @Autowired

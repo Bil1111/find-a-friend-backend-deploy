@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("https://find-a-friend-backend-deploy.onrender.com/api/forms")
+@RequestMapping("/api/forms")
 public class FormController {
     @Autowired
     private FormService formService;

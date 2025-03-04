@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("https://find-a-friend-backend-deploy.onrender.com/api/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
